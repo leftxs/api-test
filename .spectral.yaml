@@ -1,0 +1,54 @@
+extends: ["spectral:oas"]
+documentationUrl: https://www.example.com/docs/api-ruleset.md
+formats: ["oas3"]
+functionsDir: .spectral/
+# functions:
+#   - ensureCorrectVerbsInTitles
+#   - ensureNoArticlesInTitles
+#   - operationOrdering
+#   - ensureSimpleDescription
+
+aliases:
+  Request_Parameter_Query:
+    description: ''
+    targets:
+    - formats:
+      - oas3
+      given:
+      - "$.paths[*].parameters[?(@.in == 'query')].name"
+      - "$.paths[*][*].parameters[?(@.in == 'query')].name"
+      - "$.components.parameters[?(@.in == 'query')].name"
+    - formats:
+      - oas2
+      given:
+      - "$.paths[*].parameters[?(@.in == 'query')].name"
+      - "$.paths[*][*].parameters[?(@.in == 'query')].name"
+      - "$.components.parameters[?(@.in == 'query')].name"
+  Request_Parameter_Path:
+    description: ''
+    targets:
+    - formats:
+      - oas3
+      given:
+      - "$.paths[*].parameters[?(@.in == 'path')].name"
+      - "$.paths[*][*].parameters[?(@.in == 'path')].name"
+      - "$.components.parameters[?(@.in == 'path')].name"
+    - formats:
+      - oas2
+      given:
+      - "$.paths[*].parameters[?(@.in == 'path')].name"
+      - "$.paths[*][*].parameters[?(@.in == 'path')].name"
+      - "$.components.parameters[?(@.in == 'path')].name"
+
+rules:
+  # Default rules of Spectral
+  oas3-server-not-example.com: true
+  oas3-server-trailing-slash: true
+  oas3-unused-component: true
+  oas3-examples-value-or-externalValue: false
+  operation-operationId-unique: true
+  no-script-tags-in-markdown: true
+  no-eval-in-markdown: true
+  openapi-tags-alphabetical: false
+  operation-description: false
+  oas3-parameter-description: false
