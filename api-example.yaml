@@ -40,7 +40,7 @@ paths:
       description: |-
         Returns a list of todos
 
-        *Markdown is nice nice supported in descriptions. Add information here for users to get accustomed to endpoints*
+        *Markdown is supported in descriptions. Add information here for users to get accustomed to endpoints*
       parameters:
         - $ref: '#/components/parameters/limit'
       security: []

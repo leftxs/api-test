@@ -4,7 +4,7 @@ on: # rebuild any PRs and main branch changes
   push:
 
 jobs:
-  spellcheck: # run the action
+  api-spellcheck: # run the action
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
